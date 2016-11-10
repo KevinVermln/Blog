@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    #code
+    @posts = Post.all
   end
 
   def new
@@ -19,10 +19,19 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    #code
+  def update
+    if @post.update post_params
+      redirect_to @post, notice: "Post bijgewerkt"
+    else
+      render 'edit'
+    end
   end
-  
+
+  def destory
+    @post.destory
+    redirect_to post_path
+  end
+
   private
 
   def post_params

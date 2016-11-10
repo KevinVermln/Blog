@@ -1,2 +1,8 @@
 <%= @post.title %>
+<br>
+<br>
 <%= @post.content %>
+<br>
+<br>
+<%= link_to "Bijwerken", edit_post_path(@post) %>
+<%= link_to "Verwijderen", post_path(@post), methode: :delete, data: { confirm: "Weet je het zeker?"}  %>
